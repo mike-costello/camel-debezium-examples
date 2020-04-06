@@ -8,10 +8,10 @@ The intent of this repo is to unwind CDC usage (and ultimately Debezium) from Ka
 Instead of using Debezium along with Kafka Connect, we use Debezium embedded as: 
 * Kafka Connect is a monolithic platform that is heavyweight, and requires substantial tuning
 * While Kafka has developed a fairly large Kafka Connect ecosystem: 
-	** Camel has a far more robust set of adapters, component, and means to transform messages, etc. 
-	** Much of Kafka Connect's ecosystem is developed under closed source (and proprietary) licesnse by Confluence (bad sauce)
-	** Camel 3 and Camel-k advance capabilities for cloud native deployments (Kafka Connect is not capable of these cloud native capabilities) 
-	
+  * Camel has a far more robust set of adapters, component, and means to transform messages, etc. 
+  * Much of Kafka Connect's ecosystem is developed under closed source (and proprietary) licesnse by Confluence (bad sauce)
+  * Camel 3 and Camel-k advance capabilities for cloud native deployments (Kafka Connect is not capable of these cloud native capabilities) 
+
 Our implementation creates a Debezium consumer of a PostGresQL DB commit logs. This consumer simply uses the PG Output capability of PostGres to poll the underlying table changes, and creates a Struct describing the table that has changed (whether it be an update, delete, etc. operation). This struct is then transformed using the Apache Camel type converter, persisted to an Infinispan store (as we likely need a persistent place to keep the message), and produces an AMQP event out of this data change that originated in PGSQL. 
 
 If the AMQP 1.0 receiver has credit, and can auth/auz our Camel producer, we send the AMQP event off, and have a route that consumes that AMQP event to demonstrate the consumption of messages. 
@@ -28,8 +28,8 @@ Additionally, Kafka has no real notion of multi-tenancy. While we can certainly 
 ## Extending this Code Impl 
 Moving forward Camel is advantageous as it provides capabilities of extending this code implementation out to: 
 * Leverage Quarkus as an AOT compiler for our Camel code. This implies lightning fast deployment times and runtime capabiltiies. For more information about Camel and Quarkus, please check out: [Camel and Quarkus](https://github.com/apache/camel-quarkus)
-	** Leveraging Serverless Capabilities via Knative [Knative](https://knative.dev/)
-	** Camel-K is a cloud native means of using Knative and Camel for serverless Camel capabilities: [Camel-K](https://github.com/apache/camel-k) 
+  * Leveraging Serverless Capabilities via Knative [Knative](https://knative.dev/)
+  * Camel-K is a cloud native means of using Knative and Camel for serverless Camel capabilities: [Camel-K](https://github.com/apache/camel-k) 
 
 ## Quick Note on Production Readiness of this code sample 
 ***PLEASE NOTE: THIS IS NOT PRODUCTION READY*** 

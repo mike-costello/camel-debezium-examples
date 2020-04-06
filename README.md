@@ -28,8 +28,8 @@ Additionally, Kafka has no real notion of multi-tenancy. While we can certainly 
 ## Extending this Code Impl 
 Moving forward Camel is advantageous as it provides capabilities of extending this code implementation out to: 
 * Leverage Quarkus as an AOT compiler for our Camel code. This implies lightning fast deployment times and runtime capabiltiies. For more information about Camel and Quarkus, please check out: [Camel and Quarkus](https://github.com/apache/camel-quarkus)
-** Leveraging Serverless Capabilities via Knative [Knative](https://knative.dev/)
-** Camel-K is a cloud native means of using Knative and Camel for serverless Camel capabilities: [Camel-K](https://github.com/apache/camel-k) 
+	** Leveraging Serverless Capabilities via Knative [Knative](https://knative.dev/)
+	** Camel-K is a cloud native means of using Knative and Camel for serverless Camel capabilities: [Camel-K](https://github.com/apache/camel-k) 
 
 ## Quick Note on Production Readiness of this code sample 
 ***PLEASE NOTE: THIS IS NOT PRODUCTION READY*** 

@@ -19,12 +19,6 @@
 		<version.plugin.shade>3.2.1</version.plugin.shade>
 	</properties>
 	<dependencies>
-		<!-- <dependency> <groupId>io.quarkus</groupId> <artifactId>quarkus-bom</artifactId> 
-			<version>${version.quarkus}</version> <type>pom</type> <scope>import</scope> 
-			</dependency> <dependency> <groupId>org.apache.camel</groupId> <artifactId>camel-bom</artifactId> 
-			<version>${version.camel}</version> <type>pom</type> <scope>import</scope> 
-			</dependency> -->
-		<!-- camel -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-cdi</artifactId>

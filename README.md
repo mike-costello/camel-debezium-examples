@@ -23,13 +23,13 @@ As a result, while emmitting our events directly to Kafka neatly couples our eve
  
 AMQP 1.0 makes this capability a Layer 7 wire protocol capability between peers. For instance, if the AMQP event receiver that receives our AMQP event produced from this code sample is not capable of taking in messages, it will offer us 0 credit (AMQP 1.0 employs a credit cased flow control mechanism) and block our producers. This implies that an individual CDC emitter may be flow controlled by our AMQP event sink. 
 
-Additionally, Kafka has no real notion of multi-tenancy. While we can certainly use keys for our message payloads that imply multi-tenancy in our broker, by leveraging an event mesh such as ***Qpid Dispatch Router*** (https://qpid.apache.org/components/dispatch-router/index.html)[QPID Dispatch Router], we can create a truly multi-tenany event mesh. For more information on how to leverage a vhost so that policy may be applied in a multi-tenant fashion to our event mesh, please check out: (https://qpid.apache.org/releases/qpid-dispatch-1.11.0/user-guide/index.html#configuring-authorization-qdr) [Configuring Authorization and Vhosts in QDR]  
+Additionally, Kafka has no real notion of multi-tenancy. While we can certainly use keys for our message payloads that imply multi-tenancy in our broker, by leveraging an event mesh such as ***Qpid Dispatch Router*** [QPID Dispatch Router](https://qpid.apache.org/components/dispatch-router/index.html), we can create a truly multi-tenany event mesh. For more information on how to leverage a vhost so that policy may be applied in a multi-tenant fashion to our event mesh, please check out: [Configuring Authorization and Vhosts in QDR](https://qpid.apache.org/releases/qpid-dispatch-1.11.0/user-guide/index.html#configuring-authorization-qdr)
 
 ## Extending this Code Impl 
 Moving forward Camel is advantageous as it provides capabilities of extending this code implementation out to: 
-* Leverage Quarkus as an AOT compiler for our Camel code. This implies lightning fast deployment times and runtime capabiltiies. For more information about Camel and Quarkus, please check out: (https://github.com/apache/camel-quarkus)[Camel and Quarkus\
-* Leveraging Serverless Capabilities via Knative (https://knative.dev/)[Knative]
-	** Camel-K is a cloud native means of using Knative and Camel for serverless Camel capabilities: (https://github.com/apache/camel-k)[Camel-K] 
+* Leverage Quarkus as an AOT compiler for our Camel code. This implies lightning fast deployment times and runtime capabiltiies. For more information about Camel and Quarkus, please check out: [Camel and Quarkus](https://github.com/apache/camel-quarkus)
+** Leveraging Serverless Capabilities via Knative [Knative](https://knative.dev/)
+** Camel-K is a cloud native means of using Knative and Camel for serverless Camel capabilities: [Camel-K](https://github.com/apache/camel-k) 
 
 ## Quick Note on Production Readiness of this code sample 
 ***PLEASE NOTE: THIS IS NOT PRODUCTION READY*** 

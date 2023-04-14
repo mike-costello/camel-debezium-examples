@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Camel Debezium Integration example</name>
 	<properties>
-		<version.camel>3.0.1</version.camel>
+		<version.camel>3.2.0</version.camel>
 		<version.debezium>1.0.0.Final</version.debezium>
 		<version.debezium.tag>1.0</version.debezium.tag>
 		<version.postgresql.driver>42.2.9</version.postgresql.driver>
